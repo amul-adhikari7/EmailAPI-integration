@@ -26,9 +26,9 @@ const Gallery = () => {
   };
 
   return (
-    <div className="py-12 bg-gradient-to-b from-gray-50 via-gray-100 to-gray-200 min-h-screen">
+    <div className="py-12 bg-custom-gradient min-h-screen">
       {/* Gallery Title */}
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+      <h1 className="text-4xl font-bold text-center text-white mb-12">
         Video Gallery
       </h1>
 

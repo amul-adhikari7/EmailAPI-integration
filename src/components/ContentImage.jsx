@@ -15,105 +15,106 @@ const ContentImage = () => {
   };
 
   return (
-    <div className="w-full h-auto flex bg-custom-gradient items-center justify-center py-16">
-      <div className="w-full lg:w-[1330px] mx-6 lg:mx-[75px] flex flex-col lg:flex-row justify-between items-center">
-        {/* Content Section (Right side) */}
-        <div className="flex flex-col items-center lg:items-start lg:ml-[50px] mt-6 lg:mt-12 z-10">
-          <h1 className="font-inter text-white font-extrabold text-[24px] lg:text-[32px] text-center lg:text-left">
-            Singer / Musician / Composer
+    <div className="w-full min-h-screen flex flex-col bg-custom-gradient items-center justify-center py-16 px-4 sm:px-8 relative overflow-hidden">
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row justify-between items-center gap-12">
+        {/* Content Section */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 z-10">
+          <h1 className="text-white font-extrabold text-2xl sm:text-3xl lg:text-4xl tracking-widest uppercase">
+            Singer | Musician | Composer
           </h1>
-          <h2 className="font-aboreto text-white text-[28px] lg:text-[42px] tracking-wider text-center lg:text-left mt-2">
+          <h2 className="text-white font-aboreto text-4xl sm:text-5xl lg:text-6xl tracking-wide">
             PRATISH PRAJWAL
           </h2>
-          <p className="font-playfair text-white tracking-wide text-center lg:text-left mt-4 max-w-md">
+          <p className="text-white text-base sm:text-lg max-w-lg leading-relaxed opacity-90">
             Elevating every moment with soulful melodies and high-energy beats.
-            Let the rhythm speak!
+            Let the rhythm speak to your soul.
           </p>
-
-          {/* Action Buttons */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex flex-wrap gap-4 mt-4 justify-center lg:justify-start">
             <button
-              className="px-4 py-2 lg:w-[112px] bg-white text-black rounded-lg hover:bg-gray-300 transition-all"
+              className="px-6 sm:px-8 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-gray-300 transition-all text-sm sm:text-base"
               onClick={navigateToContact}
-              aria-label="Hire Pratish Prajwal"
             >
               HIRE ME
             </button>
             <button
-              className="px-4 py-2 lg:w-[132px] bg-white text-black rounded-lg hover:bg-gray-300 transition-all"
+              className="px-6 sm:px-8 py-3 bg-white text-black font-semibold rounded-full shadow-lg hover:bg-gray-300 transition-all text-sm sm:text-base"
               onClick={toggleModal}
-              aria-label="View Services"
             >
               SERVICES
             </button>
           </div>
-
-          {/* Social Media Links */}
-          <div className="flex gap-4 items-center mt-6 flex-wrap justify-center lg:justify-start">
-            <SocialLinks
-              image="./images/facebook.png"
-              link="https://www.facebook.com/pratishprajwalofficial"
-            />
-            <SocialLinks
-              image="./images/instagram.png"
-              link="https://www.instagram.com/pratishprajwal/"
-            />
-            <SocialLinks
-              image="./images/spotify.png"
-              link="https://open.spotify.com/artist/0JCQnuX13MTRx7eNIzRPmK?si=g0XnqkwtSPKcFZiD7zedcA"
-            />
-            <SocialLinks
-              image="./images/tik-tok.png"
-              link="https://www.tiktok.com/@pratishprajwal?is_from_webapp=1&sender_device=pc"
-            />
-            <SocialLinks
-              image="./images/youtube.png"
-              link="https://www.youtube.com/@PratishPrajwal"
-            />
-            <SocialLinks
-              image="./images/itunes.png"
-              link="https://music.apple.com/us/artist/pratish-prajwal/1682089420"
-            />
+          <div className="flex gap-3 sm:gap-4 items-center flex-wrap justify-center lg:justify-start mt-6">
+            {[
+              {
+                img: "facebook.png",
+                link: "https://www.facebook.com/pratishprajwalofficial",
+              },
+              {
+                img: "instagram.png",
+                link: "https://www.instagram.com/pratishprajwal/",
+              },
+              {
+                img: "spotify.png",
+                link: "https://open.spotify.com/artist/0JCQnuX13MTRx7eNIzRPmK?si=g0XnqkwtSPKcFZiD7zedcA",
+              },
+              {
+                img: "tik-tok.png",
+                link: "https://www.tiktok.com/@pratishprajwal?is_from_webapp=1&sender_device=pc",
+              },
+              {
+                img: "youtube.png",
+                link: "https://www.youtube.com/@PratishPrajwal",
+              },
+              {
+                img: "itunes.png",
+                link: "https://music.apple.com/us/artist/pratish-prajwal/1682089420",
+              },
+            ].map((social, index) => (
+              <SocialLinks
+                key={index}
+                image={`./images/${social.img}`}
+                link={social.link}
+              />
+            ))}
           </div>
         </div>
-
-        {/* Image Section (Above content) */}
-        <div className="flex justify-center w-full lg:w-[350px] mt-10 lg:mt-0">
+        {/* Image Section */}
+        <div className="relative w-[250px] sm:w-[300px] lg:w-[350px] flex justify-center">
           <img
             src="./images/bg-prati.png"
             alt="Pratish Prajwal"
-            className="rounded-full w-[150px] lg:w-[200px] shadow-lg transform hover:scale-105 transition-transform duration-300"
+            className="rounded-full shadow-2xl transform hover:scale-110 transition-all duration-300 border-8 border-white"
           />
         </div>
       </div>
 
-      {/* New Section: Fun Facts */}
-      <div className="w-full mt-16 flex flex-col items-center text-center">
-        <h3 className="text-white font-inter text-xl lg:text-2xl font-bold">
+      {/* Fun Facts Section */}
+      <div className="w-full mt-20 text-center px-4">
+        <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">
           Fun Facts About Pratish
         </h3>
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 w-10/12 max-w-5xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 w-11/12 max-w-5xl mx-auto">
           {[
             {
-              image: "./images/microphone.png",
-              title: "Started Singing at Very Young Age",
+              image: "microphone.png",
+              title: "Started Singing at Young Age",
               description:
                 "Pratish discovered his passion for music as a child and never looked back.",
             },
             {
-              image: "./images/recording.png",
+              image: "recording.png",
               title: "Soulful Songs Production",
               description:
                 "From soulful ballads to upbeat tracks, his music has touched countless hearts.",
             },
             {
-              image: "./images/globe.png",
+              image: "globe.png",
               title: "Performed on International Platforms",
               description:
                 "Taking his talent worldwide, Pratish has performed for diverse audiences.",
             },
             {
-              image: "./images/teacher.png",
+              image: "teacher.png",
               title: "Music Mentor",
               description:
                 "Helping aspiring musicians hone their craft through personalized mentoring.",
@@ -121,11 +122,19 @@ const ContentImage = () => {
           ].map((fact, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white bg-opacity-10 rounded-lg p-4 shadow-lg hover:bg-opacity-20 transition-all"
+              className="flex flex-col items-center bg-white bg-opacity-20 rounded-2xl p-6 sm:p-8 shadow-xl hover:bg-opacity-30 transition-all"
             >
-              <img src={fact.image} alt="" className="w-16 h-16 mb-4" />
-              <h4 className="text-white font-bold text-lg">{fact.title}</h4>
-              <p className="text-gray-200 text-sm mt-2">{fact.description}</p>
+              <img
+                src={`./images/${fact.image}`}
+                alt=""
+                className="w-16 sm:w-20 h-16 sm:h-20 mb-4"
+              />
+              <h4 className="text-white font-semibold text-lg sm:text-xl">
+                {fact.title}
+              </h4>
+              <p className="text-gray-200 text-sm sm:text-md mt-3">
+                {fact.description}
+              </p>
             </div>
           ))}
         </div>
@@ -133,10 +142,12 @@ const ContentImage = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-11/12 max-w-md p-6 rounded-lg shadow-lg relative transform transition-all duration-300">
-            <h2 className="text-2xl font-bold text-black mb-4">My Services</h2>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+          <div className="bg-white w-full max-w-md p-6 sm:p-8 rounded-2xl shadow-2xl relative transform transition-all duration-300">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-6">
+              My Services
+            </h2>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 sm:space-y-3 text-base sm:text-lg">
               <li>Live Performances</li>
               <li>Studio Recordings</li>
               <li>Music Composition</li>
@@ -145,8 +156,7 @@ const ContentImage = () => {
             </ul>
             <button
               onClick={toggleModal}
-              className="absolute top-2 right-2 px-2 py-1 bg-black text-white rounded-full hover:bg-gray-700 transition-all"
-              aria-label="Close Modal"
+              className="absolute top-3 right-3 px-3 py-2 bg-black text-white rounded-full hover:bg-gray-700 transition-all text-lg sm:text-xl"
             >
               ✕
             </button>

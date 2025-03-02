@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-custom-gradient text-white px-6 py-10 font-playfair">
       {/* Hero Section with Image */}
       <div className="relative">
+        {isLoading && (
+          <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-40 rounded-xl">
+            <div
+              className="spinner-border animate-spin text-white"
+              role="status"
+            >
+              <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        )}
         <img
           src="./images/about-bg.JPG"
           alt="Live Performance"
-          className="w-full h-[400px] md:h-[500px] object-cover rounded-xl shadow-lg"
+          className={`w-full h-[400px] md:h-[500px] object-cover rounded-xl shadow-lg ${
+            isLoading ? "opacity-0" : "opacity-100"
+          }`}
+          onLoad={handleImageLoad}
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center rounded-xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">About Me</h1>
@@ -39,7 +58,10 @@ const About = () => {
             <img
               src="./images/studio-session.JPG"
               alt="Studio Session"
-              className="w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
+              className={`w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105 ${
+                isLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={handleImageLoad}
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
               <p className="text-white text-lg font-bold">Studio Sessions</p>
@@ -50,7 +72,10 @@ const About = () => {
             <img
               src="./images/new-album-cover.JPG"
               alt="Album Cover"
-              className="w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
+              className={`w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105 ${
+                isLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={handleImageLoad}
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
               <p className="text-white text-lg font-bold">New Album Art</p>
@@ -61,7 +86,10 @@ const About = () => {
             <img
               src="./images/live-music.JPG"
               alt="Live Performance Close-Up"
-              className="w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
+              className={`w-full h-[250px] object-cover rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105 ${
+                isLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onLoad={handleImageLoad}
             />
             <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
               <p className="text-white text-lg font-bold">Live Performances</p>
