@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import SocialLinks from "./SocialLinks"; // Assuming this component is already created
+import { ToastContainer, toast } from "react-toastify";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,9 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const notify = () => {
+    toast("Email sent sucessfully");
+  };
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -130,11 +134,13 @@ const Contact = () => {
             {/* Submit Button */}
             <div className="text-center">
               <button
+                onClick={notify}
                 type="submit"
                 className="px-8 py-4 bg-blue-500 text-white font-bold text-lg rounded-lg hover:bg-blue-600 transition-all"
               >
                 Send Message
               </button>
+              <ToastContainer />
             </div>
           </form>
 
